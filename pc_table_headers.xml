@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<data>
+	<idfield>
+		<field>
+			<name>id</name>
+			<type>INT</type>
+		</field>
+	</idfield>	
+	<other_fields>
+		<field>
+			<name>PostCode</name>
+			<type>VARCHAR(8)</type>
+		</field>
+		<field>
+			<name>Latitude</name>
+			<type>VARCHAR(20)</type>
+		</field>
+		<field>
+			<name>Longitude</name>
+			<type>VARCHAR(20)</type>
+		</field>
+	</other_fields>
+</data>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<data>
+	<MySQL>
+		<user>root</user>
+		<password></password>
+		<host>localhost</host>
+	</MySQL>
+	<Database>
+		<name>companies_house</name>
+		<ch_table>
+			<name>ch_data</name>
+			<source_csv></source_csv>
+		</ch_table>
+		<pc_table>
+			<name>pc_data</name>
+			<source_csv></source_csv>
+		</pc_table>
+	</Database>>
+</data>
