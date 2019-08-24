@@ -10,7 +10,7 @@ def main_program():
     '''main program'''
 
     #load configuration settings
-    ch_config = get_config_from_file()
+    ch_config = ch_tables.get_config_from_file()
 
     #create table objects
     ch_data_table = ch_tables.initialise_chdata_object()
