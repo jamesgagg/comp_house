@@ -65,7 +65,7 @@ def single_braces_quotes_string(no_of_instances):
 
 
 def initialise_chdata_object():
-    '''initialise the chdata object'''
+    '''initialise the companies house data object'''
 
     table_name = "ch_data"
 
@@ -97,7 +97,7 @@ def initialise_chdata_object():
 
 
 def initialise_pcdata_object():
-    '''initialise the chdata object'''
+    '''initialise the postcode data object'''
 
     table_name = "pc_data"
 
@@ -128,7 +128,7 @@ def initialise_pcdata_object():
                    sql_input_input_format)
 
 def create_table(config, table_object):
-    '''Create tables and populate with metadata'''
+    '''Create a table in the database from a python table object'''
     mysql_config = ch_mysql.mysqlconfig_from_config(config)
     mysql_config['database'] = config['database_name']
 
@@ -139,7 +139,7 @@ def create_table(config, table_object):
 
 
 def populate_ch_table(config, ch_data_table):
-    '''Create tables and populate with metadata'''
+    '''populate the companies house database table with data from the csv'''
     ch_csv_file = config['ch_table_source']
 
     mysql_config = ch_mysql.mysqlconfig_from_config(config)
@@ -153,8 +153,6 @@ def populate_ch_table(config, ch_data_table):
         line_count = 1
         while file_line:
             if line_count > 1:
-            #if line_count > 2079000:
-
                 #remove the first and last double quotes so the fields 
                 #can be delimited by ","
                 processed_line = file_line[1:-2]
@@ -185,7 +183,7 @@ def populate_ch_table(config, ch_data_table):
 
 
 def populate_pc_table(config, pc_data_table):
-    '''Create tables and populate with metadata'''
+    '''populate the postcode table with data from the csv file'''
     pc_csv_file = config['pc_table_source']
 
     mysql_config = ch_mysql.mysqlconfig_from_config(config)
@@ -193,9 +191,9 @@ def populate_pc_table(config, pc_data_table):
 
     f_connection, f_cursor = ch_mysql.create_connection_cursor(mysql_config)
 
-    with open(pc_csv_file, encoding="Latin-1") as fch:
+    with open(pc_csv_file, encoding="Latin-1") as fpc:
         print('Start time: ' + datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
-        file_line = fch.readline()
+        file_line = fpc.readline()
         
         line_count = 1
         while file_line:
@@ -210,7 +208,7 @@ def populate_pc_table(config, pc_data_table):
                 query = pc_data_table.sql_insert_data_str(processed_line)
                 f_cursor.execute(query)
             
-            file_line = fch.readline()
+            file_line = fpc.readline()
             line_count += 1
             
             if (line_count % 100000) == 0:
@@ -223,7 +221,7 @@ def populate_pc_table(config, pc_data_table):
 
 
 def get_config_from_file():
-    '''loads the configuration from the config.xml file'''
+    '''loads the program configuration from the config.xml file'''
     config_tree = ET.parse('config.xml')
     config_root = config_tree.getroot()
 
