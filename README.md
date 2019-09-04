@@ -23,7 +23,7 @@ Python 3 code to create a MySQL database comprising UK company data. Two sources
 3. In the repository config.xml file: 
    * Change the name of the database to be created, if required (by default it is 'companies_house'): To change the name change the text between the \<name\> tags in the parent \<Database\> section.
    * Add your MySQL username, password and host to the tags between the parent \<MySQL\> tags
-   * Add the full path and filename for your unzipped 'BasicCompanyDataAsOneFile-\<date\>.csv between the \<source_csv\> tag in the parent \<ch_table\> section
-   * Add the full path and filename for your unzipped 'ukpostcodes.csv between the \<source_csv\> tag in the parent \<pc_table\> section
+   * Add the full path and filename for your unzipped 'BasicCompanyDataAsOneFile-\<date\>.csv between the \<source_csv\> tags in the parent \<ch_table\> section
+   * Add the full path and filename for your unzipped 'ukpostcodes.csv between the \<source_csv\> tags in the parent \<pc_table\> section
 4. Run the repository ch_main.py file. This will create the database and tables if they don't already exist. These will then be populated with the Companies House and FreeMapTools data. Its a lot of data so this can take a long time, e.g. over an hour.
 5. Use Python/MySQL to query the data as required: ch_sql_queries_to_csv_example.py gives an example of querying the data and saving the results to a csv file.
