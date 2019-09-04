@@ -12,7 +12,8 @@ Python 3 code to create a MySQL database comprising UK company data. Two sources
 ## Requirements
 1. MySQL (https://dev.mysql.com/downloads/installer/)
 2. Python 3 (https://www.python.org/downloads/)
-3. Basic knowledge of both of these packages.
+3. Python mysql-connector-python module (https://dev.mysql.com/doc/connector-python/en/connector-python-installation-binary.html)
+4. Basic knowledge of these packages.
 
 ## Instructions
 1. Clone or download this git repository
@@ -25,4 +26,4 @@ Python 3 code to create a MySQL database comprising UK company data. Two sources
    * Add the full path and filename for your unzipped 'BasicCompanyDataAsOneFile-\<date\>.csv between the \<source_csv\> tag in the parent \<ch_table\> section
    * Add the full path and filename for your unzipped 'ukpostcodes.csv between the \<source_csv\> tag in the parent \<pc_table\> section
 4. Run the repository ch_main.py file. This will create the database and tables if they don't already exist. These will then be populated with the Companies House and FreeMapTools data. Its a lot of data so this can take a long time, e.g. over an hour.
-5. Use MySQL to query the data as required.
+5. Use Python/MySQL to query the data as required: ch_sql_queries_to_csv_example.py gives an example of querying the data and saving the results to a csv file.
