@@ -17,9 +17,11 @@ class MysqlConnection():
 
     def __str__(self):
         '''prints all attributes and their values'''
-        attributes = []
-        for key in self.__dict__:
-            attributes.append("{key}='{value}'".format(key=key, value=self.__dict__[key]))
+        attributes = [
+            "{key}='{value}'".format(key=key, value=self.__dict__[key])
+            for key in self.__dict__
+        ]
+
         return ', '.join(attributes)
         
         
@@ -61,9 +63,11 @@ class MysqlCursor():
 
     def __str__(self):
         '''prints all attributes and their values'''
-        attributes = []
-        for key in self.__dict__:
-            attributes.append("{key}='{value}'".format(key=key, value=self.__dict__[key]))
+        attributes = [
+            "{key}='{value}'".format(key=key, value=self.__dict__[key])
+            for key in self.__dict__
+        ]
+
         return ', '.join(attributes)
 
 
@@ -93,8 +97,7 @@ class MysqlCursor():
 def list_from_sql_query(mysql_cursor, query):
     '''return a list of the MySQL databases using the supplied cursor'''    
     mysql_cursor.execute(query)
-    mysql_list = [x[0] for x in mysql_cursor.fetchall()]
-    return mysql_list
+    return [x[0] for x in mysql_cursor.fetchall()]
 
 
 def check_db_exists(dbname, mysql_cursor):
@@ -128,12 +131,11 @@ def destroy_connection_cursor(cursor, connection):
 
 def mysqlconfig_from_config(config):
     '''creates a mysql compatible config from the program config'''
-    mysql_config = {
+    return {
         'user': config['mysql_user'],
         'password': config['mysql_password'],
         'host': config['mysql_host']
         }
-    return mysql_config
 
 
 def create_fs_db(config):

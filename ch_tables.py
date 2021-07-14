@@ -23,14 +23,12 @@ class CHTable():
 
     def sql_create_table_str(self):
         '''create the string to pass to mysql to create the table'''
-        table_creation_string = self.sql_create_table_input_str.format(
+        return self.sql_create_table_input_str.format(
             *self.sql_create_table_input_format)
-        return table_creation_string
 
     def sql_insert_data_str(self, data):
         '''inserts data into the table'''
-        insert_string = self.sql_input_input_str.format(*self.sql_input_input_format + data)
-        return insert_string
+        return self.sql_input_input_str.format(*self.sql_input_input_format + data)
 
 
 
@@ -226,8 +224,7 @@ def get_config_from_file():
     config_tree = ET.parse('config.xml')
     config_root = config_tree.getroot()
 
-    config = {}
-    config['mysql_user'] = config_root.find('MySQL').find('user').text
+    config = {'mysql_user': config_root.find('MySQL').find('user').text}
     config['mysql_password'] = config_root.find('MySQL').find('password').text
     config['mysql_host'] = config_root.find('MySQL').find('host').text
     config['database_name'] = config_root.find('Database').find('name').text

@@ -24,9 +24,11 @@ def sic_like(code_list):
     '''create mysql 'like' string for supplied sic code list'''
     out_string = []
     for code in code_list:
-        temp_string = []
-        for i in range(1, 5):
-            temp_string.append('SICCode_SicText_' + str(i) + ' LIKE \'' + code + '%\'')
+        temp_string = [
+            'SICCode_SicText_' + str(i) + ' LIKE \'' + code + '%\''
+            for i in range(1, 5)
+        ]
+
         temp_string = ' OR '.join(temp_string)
         out_string.append(temp_string)
     out_string = '(' + ' OR '.join(out_string) + ')'
@@ -35,9 +37,11 @@ def sic_like(code_list):
 
 def postcodes_like(postcode_list):
     '''create mysql 'like' string for supplied postcode list'''
-    out_string = []
-    for postcode in postcode_list:
-        out_string.append('RegAddress_PostCode LIKE \'' + postcode + '%\'')
+    out_string = [
+        'RegAddress_PostCode LIKE \'' + postcode + '%\''
+        for postcode in postcode_list
+    ]
+
     out_string = '(' + ' OR '.join(out_string) + ')'
     return out_string    
 
