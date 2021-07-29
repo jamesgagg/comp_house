@@ -5,7 +5,7 @@
 			<name>id</name>
 			<type>INT</type>
 		</field>
-	</idfield>	
+	</idfield>
 	<other_fields>
 		<field>
 			<name>CompanyName</name>

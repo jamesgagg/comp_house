@@ -1,19 +1,23 @@
 <?xml version="1.0"?>
 <data>
 	<MySQL>
-		<user>root</user>
+		<user></user>
 		<password></password>
 		<host>localhost</host>
 	</MySQL>
 	<Database>
 		<name>companies_house</name>
-		<ch_table>
-			<name>ch_data</name>
-			<source_csv></source_csv>
-		</ch_table>
-		<pc_table>
-			<name>pc_data</name>
-			<source_csv></source_csv>
-		</pc_table>
+		<Tables>
+		    <companies>
+			    <source_csv></source_csv>
+			    <headers_xml>companies_table_headers.xml</headers_xml>
+				<ignore_first_column>False</ignore_first_column>
+			</companies>
+			<postcodes>
+    			<source_csv></source_csv>
+	    	    <headers_xml>postcodes_table_headers.xml</headers_xml>
+				<ignore_first_column>True</ignore_first_column>
+			</postcodes>
+		</Tables>
 	</Database>>
 </data>
