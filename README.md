@@ -21,7 +21,7 @@ with querying the data.
 1. Clone or download this git repository.
 2. Download both of the data files and unzip them:
    * http://download.companieshouse.gov.uk/en_output.html (select the 'BasicCompanyDataAsOneFile-\<date\>.zip' file)
-   * https://www.freemaptools.com/download/full-postcodes/ukpostcodes.zip
+   * https://data.freemaptools.com/download/full-uk-postcodes/ukpostcodes.zip
 3. In the repository config.xml file:
    * If required, change the name of the database to be created (by default it is 'companies_house'): To change the name change the text between the \<name\> tags in the parent \<Database\> section.
    * Add your MySQL username, password and host to the tags between the parent \<MySQL\> tags
